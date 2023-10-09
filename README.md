@@ -11,9 +11,7 @@ For this assignment you can use PyTorch or Keras/Tensorflow deep learning framew
 - Pytorch [60 mins blitz](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)
 - Keras / Tensorflow [Getting started](https://keras.io/getting_started/)
 
-Let’s consider a generic structure for defining a neural network in Pytorch. [Click here for more details](https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html)
-
-<img width="774" alt="261148282-729ac549-c2e0-4315-8fc0-4e8f58f4678f" src="https://github.com/ItsTheDeeKay/Image-Classification-Using-CNN/assets/113076076/0a51fc87-a1f2-441d-810e-7bf011d15480">
+<img width="949" alt="Screenshot 2023-10-08 at 11 02 02 PM" src="https://github.com/ItsTheDeeKay/Image-Classification-Using-CNN/assets/113076076/06665255-c841-42cd-8b49-49a39ee3257c">
 
 
 This code defines a neural network with three layers:
