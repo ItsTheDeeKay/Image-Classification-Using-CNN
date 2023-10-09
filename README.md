@@ -13,30 +13,22 @@ For this assignment you can use PyTorch or Keras/Tensorflow deep learning framew
 
 <img width="949" alt="Screenshot 2023-10-08 at 11 02 02 PM" src="https://github.com/ItsTheDeeKay/Image-Classification-Using-CNN/assets/113076076/06665255-c841-42cd-8b49-49a39ee3257c">
 
-
-This code defines a neural network with three layers:
-- Flatten layer that flattens the input image tensor
-- Two fully connected layers with 512 hidden units and ReLU activation functions
-- Final fully connected layer with 10 output units (corresponding to the 10 possible
-classes in the MNIST dataset)
-
-The forward method specifies how input data is passed through the layers of the network.
-It defines a neural network using PyTorch's nn.Module class and the nn.Sequential module, and then uses the network to make a prediction.
-nn.Module is a base class in the PyTorch module that provides a framework for building and organizing complex neural network architectures.
-When defining a neural network module in PyTorch, you usually create a class that inherits from nn.Module. The nn.Module class provides a set of useful methods and attributes that help in building, training and evaluating the neural network.
-Some of the key methods provided by nn.Module are:
-__init__(): This is the constructor method that initializes the different layers and
-parameters of the neural network.
-forward(self, x): This method defines the forward pass of the neural network. It
-takes the input tensor (x) and returns the predicted probabilities for each class.
-nn.Linear is a PyTorch module that applies a linear transformation to the input data. It is one of the most commonly used modules in deep learning for building neural networks.
-The nn.Linear module takes two arguments: in_features and out_features - the number of input/output features. When an input tensor is passed through an nn.Linear module, it is first flattened into a 1D tensor and then multiplied by a weight matrix of size out_features x in_features. A bias term of size out_features is also added to the output.
-The output of an nn.Linear module is given by the following equation: 𝑜𝑢𝑡𝑝𝑢𝑡 = 𝑤𝑇𝑥 + 𝑏
-model = NeuralNetwork().to(device) print(model)
-Here we create an instance of the NeuralNetwork class and moves it to the device specified by the device variable (which should be set to 'cuda' for GPU or 'cpu' for CPU). It is also good practice to print the summary of the architecture of the NN.
-
-This code generates a random input image tensor of size 1x28x28 (representing a single 28x28 grayscale image) and passes it through the neural network using the model instance. The output of the network is a tensor of size 1x10, representing the predicted probabilities for each of the 10 possible classes.
-nn.Softmax module is used to convert these probabilities to a valid probability distribution, and the argmax method is used to obtain the class with the highest probability.
+As you can see from above structure, this is an 8-layered neural network comprising both convolutional layers and fully connected layers.
+- The first layer takes an input tensor of size (batch_size, 3, 64, 64) and applies a convolutional operation with 64 filters, a kernel size of 3, and a stride of 1, producing an output tensor of size (batch_size, 64, 62, 62).
+- This is followed by a ReLU activation function, preserving the output tensor's size.
+- The second layer applies a max-pooling operation with a kernel size of 3 and a stride of 2, reducing the output tensor's size to (batch_size, 64, 30, 30).
+- The third layer applies a convolutional operation with 192 filters, a kernel size of 3, padding of 2, and a stride of 1, producing an output tensor of size (batch_size, 192, 30, 30).
+- This is followed by another ReLU activation function.
+- The fourth layer applies a max-pooling operation with a kernel size of 3 and a stride of 2, reducing the output tensor's size to (batch_size, 192, 14, 14).
+- The fifth layer applies a convolutional operation with 384 filters, a kernel size of 3, padding of 1, and a stride of 1, producing an output tensor of size (batch_size, 384, 14, 14).
+- This is followed by another ReLU activation function.
+- The sixth layer applies a convolutional operation with 256 filters, a kernel size of 3, padding of 1, and a stride of 1, producing an output tensor of size (batch_size, 256, 14, 14).
+- This is followed by another ReLU activation function.
+- The seventh layer applies a convolutional operation with 256 filters, a kernel size of 3, padding of 1, and a stride of 1, producing an output tensor of size (batch_size, 256, 14, 14).
+- This is followed by another ReLU activation function.
+- The eighth layer applies a max-pooling operation with a kernel size of 3 and a stride of 2, reducing the output tensor's size to (batch_size, 256, 6, 6).
+- After the convolutional layers, the architecture includes an adaptive average pooling layer that resizes the output tensor to (batch_size, 256, 4, 4). - - Then, three fully connected layers are used for classification, with dropout and ReLU activation layers in between.
+- The final fully connected layer produces an output tensor of size (batch_size, num_classes), where “num_classes” is 3 in our case.
 
 # Part I: Building a Basic NN
 In this assignment, you will implement a neural network using the PyTorch/Keras library. You will train the network on the dataset provided, which contains of seven features and a target. Your goal is to predict a target, that has a binary representation.
